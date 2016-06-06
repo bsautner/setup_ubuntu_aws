@@ -24,12 +24,7 @@ echo "ssh -i \"ubuntu-ws01-kp.pem\" ubuntu@$(hostname -I | cut -d\  -f1)"
 echo "cat /tmp/ubunut-ws01.pub >> ~/.ssh/authorized_keys"
  
 su - $USER
-#mkdir /home/$USER/.ssh
-#chown/home/$USER/.ssh $USER
-#chmod 700 /home/$USER/.ssh
-#touch /home/$USER/.ssh/authorized_keys
-#chmod 600 /home/$USER/.ssh/authorized_keys
-
+ 
 
 
 
