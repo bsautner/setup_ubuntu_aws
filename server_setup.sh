@@ -15,7 +15,7 @@ keyctl unlink @u @s
 adduser $USER sudo
 bash -c 'echo "$USER ALL=(ALL) NOPASSWD: ALL" | (EDITOR="tee -a" visudo)'
 
-#su - $USER
+#
 
 echo "please logout and run the following on the client"
 echo "ssh-keygen -t rsa -b 4096 -f $USER@$(hostname -I | cut -d\  -f1)"
@@ -23,7 +23,7 @@ echo "scp -i \"ubuntu-ws01-kp.pem\" ~/.ssh/ubuntu-ws01.pub  ubuntu@$(hostname -I
 echo "ssh -i \"ubuntu-ws01-kp.pem\" ubuntu@$(hostname -I | cut -d\  -f1)"
 echo "cat /tmp/ubunut-ws01.pub >> ~/.ssh/authorized_keys"
  
-
+su - $USER
 #mkdir /home/$USER/.ssh
 #chown/home/$USER/.ssh $USER
 #chmod 700 /home/$USER/.ssh
