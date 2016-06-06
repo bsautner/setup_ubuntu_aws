@@ -20,5 +20,9 @@ chmod 700 .ssh
 touch .ssh/authorized_keys
 chmod 600 .ssh/authorized_keys
 
+echo "please logout and run the following on the client"
+echo "ssh-keygen -t rsa -b 4096 -f $USER@$(hostname)"
+echo "ssh-copy-id $USER@$(hostname)"
+
 
 
