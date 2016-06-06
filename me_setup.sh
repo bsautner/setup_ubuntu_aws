@@ -8,4 +8,8 @@ echo "Done setup paste the pub key into above"
 
 apt-get -y install pass
 pass init 
+pass git init
+git config --global user.email $USER
+git config --global user.name "Benjamin Sautner"
+
 
