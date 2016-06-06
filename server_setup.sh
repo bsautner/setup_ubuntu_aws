@@ -14,14 +14,17 @@ keyctl unlink @u @s
 
 adduser $USER sudo
 bash -c 'echo "$USER ALL=(ALL) NOPASSWD: ALL" | (EDITOR="tee -a" visudo)'
-su - $USER
-mkdir .ssh
-chmod 700 .ssh
-touch .ssh/authorized_keys
-chmod 600 .ssh/authorized_keys
+
+#su - $USER
+mkdir /home/$USER/.ssh
+chmod 700 /home/$USER/.ssh
+touch /home/$USER/.ssh/authorized_keys
+chmod 600 /home/$USER/.ssh/authorized_keys
 
 echo "please logout and run the following on the client"
 echo "ssh-keygen -t rsa -b 4096 -f $USER@$(hostname -I | cut -d\  -f1)"
+
+
 
 
 
