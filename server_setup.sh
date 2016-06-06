@@ -1,15 +1,15 @@
-export USER="bsautner12"
+export USER="bsautner"
 
 echo $(hostname -I | cut -d\  -f1) $(hostname) | tee -a /etc/hosts
 
-#apt-get update -y
-#apt-get upgrade -y
-#apt-get dist-upgrade -y 
-#apt-get autoremove -y 
+apt-get update -y
+apt-get upgrade -y
+apt-get dist-upgrade -y 
+apt-get autoremove -y 
 apt-get install ecryptfs-utils -y
 
 keyctl link @u @s
-adduser --encrypt-home --disabled-password --gecos "" --force $USER 
+adduser --disabled-password --gecos "" --force $USER 
 keyctl unlink @u @s
 
 adduser $USER sudo
