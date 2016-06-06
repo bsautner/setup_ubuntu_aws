@@ -11,7 +11,7 @@ adduser --encrypt-home --disabled-password --gecos "" --force $USER
 keyctl unlink @u @s
 
 adduser $USER sudo
-bash -c 'echo "$USER ALL=(ALL:ALL) NOPASSWD ALL" | (EDITOR="tee -a" visudo)'
+bash -c 'echo "$USER ALL=(ALL) NOPASSWD: ALL" | (EDITOR="tee -a" visudo)'
 su - $USER
 mkdir .ssh
 chmod 700 .ssh
