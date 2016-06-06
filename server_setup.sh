@@ -1,7 +1,7 @@
 export USER="bsautner"
-export IP = $(hostname -I | cut -d\  -f1)
+export HOST_IP = $(hostname -I | cut -d\  -f1)
 
-echo $(hostname -I | cut -d\  -f1) $(hostname) | tee -a /etc/hosts
+echo $(HOST_IP) $(hostname) | tee -a /etc/hosts
 
 apt-get update -y
 apt-get upgrade -y
@@ -22,8 +22,8 @@ touch .ssh/authorized_keys
 chmod 600 .ssh/authorized_keys
 
 echo "please logout and run the following on the client"
-echo "ssh-keygen -t rsa -b 4096 -f $USER@$IP"
-echo "ssh-copy-id $USER@$IP"
+echo "ssh-keygen -t rsa -b 4096 -f $USER@$HOST_IP"
+echo "ssh-copy-id $USER@$HOST_IP"
 
 
 
