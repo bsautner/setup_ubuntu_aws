@@ -1,4 +1,4 @@
-export USER="bsautner"
+export USER="ben@sautner.me"
  
 echo $(hostname -I | cut -d\  -f1) $(hostname) | tee -a /etc/hosts
 
