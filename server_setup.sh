@@ -1,4 +1,4 @@
-export USER="bsautner"
+export USER="bsautner8"
 
 apt-get update -y
 apt-get upgrade -y
