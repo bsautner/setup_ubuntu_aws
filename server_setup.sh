@@ -1,4 +1,4 @@
-export USER="bsautner8"
+export USER="bsautner9"
 
 apt-get update -y
 apt-get upgrade -y
@@ -8,10 +8,10 @@ apt-get install ecryptfs-utils -y
 
 keyctl link @u @s
 adduser --encrypt-home --disabled-password --gecos "" --force $USER 
-
 keyctl unlink @u @s
 
-sudo adduser $USER sudo
+adduser $USER sudo
+bash -c 'echo "$USER ALL=(ALL:ALL) ALL" | (EDITOR="tee -a" visudo)'
 su - $USER
 mkdir .ssh
 chmod 700 .ssh
