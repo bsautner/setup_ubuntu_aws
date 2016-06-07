@@ -1,9 +1,10 @@
 export USER="ben"
 
-mkdir .ssh
-chmod 700 .ssh
-touch .ssh/authorized_keys
-chmod 600 .ssh/authorized_keys
+mkdir /home/$USER/.ssh
+chmod 700 home/$USER/.ssh.ssh
+touch /home/$USER/.ssh/authorized_keys
+chmod 600 /home/$USER/.ssh/authorized_keys
+chown ben -R /home/$USER/.ssh
 echo "Done setup paste the pub key into above"
 
 git config --global user.email $USER
