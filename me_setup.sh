@@ -21,8 +21,8 @@ pass git init
 sudo apt-get install squid
 sudo cp /etc/squid3/squid.conf /etc/squid3/squid.conf.original
 sudo chmod a-w /etc/squid3/squid.conf.original
-sudo cp -vf ./squid.conf /etc/squid3/squid.conf 
-
+sudo cp -vf ./squid.conf /etc/squid3/squid.conf
+sudo /etc/init.d/squid restart
 
 
 
