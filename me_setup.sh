@@ -1,4 +1,4 @@
-export USER="ben@sautner.me"
+export USER="ben"
 
 mkdir .ssh
 chmod 700 .ssh
