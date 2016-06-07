@@ -11,7 +11,7 @@ git config --global user.name "Benjamin Sautner"
 
 
 apt-get -y install pass
-pass init 
+pass init $USER
 pass git init
 
 
