@@ -7,7 +7,7 @@ apt-get upgrade -y
 apt-get dist-upgrade -y 
 apt-get autoremove -y 
 apt-get install ecryptfs-utils -y
-apt-get install samba -y
+
 
 keyctl link @u @s
 adduser --disabled-password --gecos "" --force $USER 
