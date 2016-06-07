@@ -1,2 +1,4 @@
-# setup_ubunut_aws
-script for building aws ubunut servers for personal use
+### Client Config
+
+*install fuse and sshfs 
+*http://osxfuse.github.io
