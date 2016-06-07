@@ -24,6 +24,7 @@ echo "ssh -i \"ubuntu-ws01-kp.pem\" ubuntu@$(hostname -I | cut -d\  -f1)"
 echo "cat /tmp/ubunut-ws01.pub >> ~/.ssh/authorized_keys"
  
 su - $USER
+exit
  
 
 
