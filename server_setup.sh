@@ -16,6 +16,13 @@ keyctl unlink @u @s
 adduser $USER sudo
 bash -c 'echo "$USER ALL=(ALL) NOPASSWD: ALL" | (EDITOR="tee -a" visudo)'
 
+
+#mount my stuff
+mkdir /data
+bash -c 'echo "/dev/xvdf1 /data ext4 defaults,nofail 0 2" >> /etc/fstab'
+mount -a
+chown -R $USER /data
+
 #
 
 echo "please logout and run the following on the client"
