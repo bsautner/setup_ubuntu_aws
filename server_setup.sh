@@ -31,6 +31,8 @@ echo "scp -i \"ubuntu-ws01-kp.pem\" ~/.ssh/ubuntu-ws01.pub  ubuntu@$(hostname -I
 echo "ssh -i \"ubuntu-ws01-kp.pem\" ubuntu@$(hostname -I | cut -d\  -f1)"
 echo "cat /tmp/ubunut-ws01.pub >> ~/.ssh/authorized_keys"
  
+cd /home/&USER
+git clone https://github.com/bsautner/setup_ubuntu_aws.git
 su - $USER
 exit
  
