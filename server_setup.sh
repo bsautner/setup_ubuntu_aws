@@ -33,8 +33,8 @@ echo "cat /tmp/ubunut-ws01.pub >> ~/.ssh/authorized_keys"
  
 cd /home/$USER
 git clone https://github.com/bsautner/setup_ubuntu_aws.git
-su - $USER
-exit
+chmod +x /home/$USER/setup_ubuntu_aws/*.sh
+
  
 
 
