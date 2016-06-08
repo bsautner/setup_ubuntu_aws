@@ -7,8 +7,7 @@ apt-get upgrade -y
 apt-get dist-upgrade -y 
 apt-get autoremove -y 
 apt-get install ecryptfs-utils -y
-
-
+ 
 keyctl link @u @s
 adduser --disabled-password --gecos "" --force $USER 
 keyctl unlink @u @s
@@ -22,19 +21,8 @@ mkdir /data
 bash -c 'echo "/dev/xvdf1 /data ext4 defaults,nofail 0 2" >> /etc/fstab'
 mount -a
 chown -R $USER /data
-
-#
-
-echo "please logout and run the following on the client"
-echo "ssh-keygen -t rsa -b 4096 -f $USER@$(hostname -I | cut -d\  -f1)"
-echo "scp -i \"ubuntu-ws01-kp.pem\" ~/.ssh/ubuntu-ws01.pub  ubuntu@$(hostname -I | cut -d\  -f1):/tmp/ubunut-ws01.pub"
-echo "ssh -i \"ubuntu-ws01-kp.pem\" ubuntu@$(hostname -I | cut -d\  -f1)"
-echo "cat /tmp/ubunut-ws01.pub >> ~/.ssh/authorized_keys"
+sudo usermod -d /data/home/ben $USER
  
-cd /home/$USER
-git clone https://github.com/bsautner/setup_ubuntu_aws.git
-chmod +x /home/$USER/setup_ubuntu_aws/*.sh
-
  
 
 
