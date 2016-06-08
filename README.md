@@ -9,3 +9,4 @@
 ### Squid stuff
 
 * tail -f /var/log/squid3/access.log
+* curl -x http://sautner.me:8888 google.com
