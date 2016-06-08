@@ -2,7 +2,7 @@
 
 * install fuse and sshfs 
 * http://osxfuse.github.io
-* sshfs ben@sautner.me:/data -ovolname=remote
+* sshfs ben@sautner.me: /data -ovolname=remote
 
 
 ### Squid stuff
