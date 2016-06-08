@@ -69,6 +69,7 @@ cp -fv ./saslauthd /etc/default/saslauthd
 
 sudo dpkg-statoverride --force --update --add root sasl 755 /etc/default/saslauthd
 sudo ln -s /etc/default/saslauthd /etc/saslauthd
+sudo -y apt-get install mailutils
  
 reboot
 
