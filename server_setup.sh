@@ -66,6 +66,9 @@ postconf -e 'myhostname = central.sautner.me'
 sudo apt-get -y install libsasl2-2 sasl2-bin libsasl2-modules
 
 cp -fv ./saslauthd /etc/default/saslauthd
+
+sudo dpkg-statoverride --force --update --add root sasl 755 /etc/default/saslauthd
+sudo ln -s /etc/default/saslauthd /etc/saslauthd
  
 reboot
 
