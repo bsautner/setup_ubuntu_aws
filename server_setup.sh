@@ -1,6 +1,11 @@
 export USER="ben"
+export HOST_NAME = "sautner.me"
  
-echo $(hostname -I | cut -d\  -f1) $(hostname) | tee -a /etc/hosts
+echo $(hostname -I | cut -d\  -f1) $(HOST_NAME) | tee -a /etc/hosts
+rm -f /etc/hostname
+touch /etc/hostname
+bash -c 'echo "sautner.me" >> /etc/hostname'
+
 
 apt-get update -y
 apt-get upgrade -y
