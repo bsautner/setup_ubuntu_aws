@@ -76,6 +76,9 @@ sudo dpkg-statoverride --force --update --add root sasl 755 /etc/default/saslaut
 sudo ln -s /etc/default/saslauthd /etc/saslauthd
 
 sudo apt-get -y install mailutils
+sudo adduser ben mail
+sudo touch /var/mail/ben
+sudo chmod ug+rw /var/mail/ben
  
 reboot
 
