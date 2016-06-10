@@ -84,6 +84,7 @@ sudo touch /var/mail/ben
 sudo chmod ug+rw /var/mail/ben
  
 sudo apt-get -y install dovecot-imapd dovecot-pop3d
+cp dovcot.config /etc/dovcot/
 reboot
 
 
