@@ -45,7 +45,7 @@ service squid3 restart
  
 apt-get -y install postfix
 dpkg-reconfigure postfix
-postconf -e 'home_mailbox = /data/mail'
+postconf -e 'home_mailbox = .mail'
 postconf -e 'smtpd_sasl_local_domain ='
 postconf -e 'smtpd_sasl_auth_enable = yes'
 postconf -e 'smtpd_sasl_security_options = noanonymous'
@@ -59,14 +59,17 @@ postconf -e 'smtp_tls_security_level = may'
 postconf -e 'smtpd_tls_security_level = may'
 postconf -e 'smtpd_tls_auth_only = no'
 postconf -e 'smtp_tls_note_starttls_offer = yes'
-postconf -e 'smtpd_tls_key_file = /etc/ssl/private/smtpd.key'
-postconf -e 'smtpd_tls_cert_file = /etc/ssl/certs/smtpd.crt'
+postconf -e 'smtpd_tls_key_file = /data/.certs/smtpd.key'
+postconf -e 'smtpd_tls_cert_file = /data/.certs/smtpd.crt'
 postconf -e 'smtpd_tls_CAfile = /etc/ssl/certs/cacert.pem'
 postconf -e 'smtpd_tls_loglevel = 1'
 postconf -e 'smtpd_tls_received_header = yes'
 postconf -e 'smtpd_tls_session_cache_timeout = 3600s'
 postconf -e 'tls_random_source = dev:/dev/urandom'
 postconf -e 'myhostname = sautner.me' 
+
+sudo cp /data/.certs/cacert.pem /etc/ssl/certs/
+sudo cp /data/.certs/cakey.pem /etc/ssl/private/
 
 sudo apt-get -y install libsasl2-2 sasl2-bin libsasl2-modules
 
@@ -80,6 +83,7 @@ sudo adduser ben mail
 sudo touch /var/mail/ben
 sudo chmod ug+rw /var/mail/ben
  
+sudo apt-get -y install dovecot-imapd dovecot-pop3d
 reboot
 
 
