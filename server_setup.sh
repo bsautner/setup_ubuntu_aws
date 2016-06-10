@@ -6,6 +6,10 @@ rm -f /etc/hostname
 touch /etc/hostname
 bash -c 'echo "sautner.me" >> /etc/hostname'
 
+touch /etc/host
+bash -c 'echo "127.0.0.1	central.sautner.me	central" >> /etc/host'
+
+
 
 apt-get update -y
 apt-get upgrade -y
