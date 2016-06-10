@@ -18,11 +18,16 @@ apt-get autoremove -y
 apt-get install ecryptfs-utils -y
  
 keyctl link @u @s
-adduser --disabled-password --gecos "" --force $USER 
+#adduser --disabled-password --gecos "" --force $USER 
+
+adduser --gecos "" --force $USER 
+
 keyctl unlink @u @s
 
 adduser $USER sudo
 bash -c 'echo "$USER ALL=(ALL) NOPASSWD: ALL" | (EDITOR="tee -a" visudo)'
+
+
 
 
 #mount my stuff
