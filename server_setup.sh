@@ -66,7 +66,7 @@ postconf -e 'smtpd_tls_loglevel = 1'
 postconf -e 'smtpd_tls_received_header = yes'
 postconf -e 'smtpd_tls_session_cache_timeout = 3600s'
 postconf -e 'tls_random_source = dev:/dev/urandom'
-postconf -e 'myhostname = central.sautner.me' 
+postconf -e 'myhostname = sautner.me' 
 
 sudo apt-get -y install libsasl2-2 sasl2-bin libsasl2-modules
 
