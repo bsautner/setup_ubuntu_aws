@@ -3,7 +3,7 @@
 * install fuse and sshfs 
 * http://osxfuse.github.io
 * make the target folder if needed:
-* sshfs ben@sautner.me:/data /data -ovolname=remote
+* sshfs ben@sautner.me:/data ~/remote -ovolname=remote
 
 
 ### Squid stuff
