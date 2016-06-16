@@ -69,18 +69,18 @@ sudo chmod ug+rw /var/mail/ben
  
 #sudo apt-get -y install dovecot-imapd dovecot-pop3d
 #cp dovcot.config /etc/dovcot/
+apt-get -y install courier-imap courier-imap-ssl courier-pop courier-pop-ssl
 
+maildirmake /etc/skel/Maildir
+maildirmake /etc/skel/Maildir/.Drafts
+maildirmake /etc/skel/Maildir/.Sent
+maildirmake /etc/skel/Maildir/.Trash
+maildirmake /etc/skel/Maildir/.Templates
 
-apt-get -y install courier-mta courier-mta-ssl courier-imap courier-imap-ssl courier-doc sqwebmail
-apt-get -y install spamassassin spamc
+cp -r /etc/skel/Maildir /data/home/ben/
+chown -R myuser:usergroup /data/home/ben/Maildir
+chmod -R 700 /data/home/ben/Maildir
 
-maildirmake Maildir
-maildirmake -f Spam Maildir
-maildirmake -q 10000000S ./Maildir
-touch .courier
-cp -r Maildir /etc/skel
-cp .courier /etc/skel
-cp ./maildroprc /etc/courier/maildroprc 
 reboot
 
 
