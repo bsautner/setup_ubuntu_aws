@@ -9,7 +9,7 @@ bash -c 'echo "sautner.me" >> /etc/hostname'
 touch /etc/host
 bash -c 'echo "127.0.0.1	central.sautner.me	central" >> /etc/host'
 
-
+cp -f sshd_config /etc/ssh/sshd_config
 
 apt-get update -y
 apt-get upgrade -y
@@ -28,7 +28,7 @@ adduser $USER sudo
 bash -c 'echo "$USER ALL=(ALL) NOPASSWD: ALL" | (EDITOR="tee -a" visudo)'
 
 
-
+bash -c 'echo "/usr/sbin/logwatch --output mail --mailto bsautner@gmail.com --detail high" >> /etc/cron.daily/00logwatch'
 
 #mount my stuff
 mkdir /data
@@ -38,45 +38,20 @@ chown -R $USER /data
 
 sudo usermod -d /data/home/ben $USER
 
-
+apt-get -y install fail2ban
 
 apt-get -y install pass
 #pass init $USER
 #pass git init
 
 #Setup Proxy
-apt-get -y install squid
-cp /etc/squid3/squid.conf /etc/squid3/squid.conf.original
-chmod a-w /etc/squid3/squid.conf.original
-cp -vf ./squid.conf /etc/squid3/squid.conf
-service squid3 restart
+#apt-get -y install squid
+#cp /etc/squid3/squid.conf /etc/squid3/squid.conf.original
+#chmod a-w /etc/squid3/squid.conf.original
+#cp -vf ./squid.conf /etc/squid3/squid.conf
+#service squid3 restart
  
- 
-apt-get -y install postfix
-dpkg-reconfigure postfix
-postconf -e 'home_mailbox = .mail'
-postconf -e 'smtpd_sasl_local_domain ='
-postconf -e 'smtpd_sasl_auth_enable = yes'
-postconf -e 'smtpd_sasl_security_options = noanonymous'
-postconf -e 'broken_sasl_auth_clients = yes'
-postconf -e 'smtpd_recipient_restrictions = permit_sasl_authenticated,permit_mynetworks,reject_unauth_destination'
-postconf -e 'inet_interfaces = all'
-
-cp -v ./smtpd.conf /etc/postfix/sasl/smtpd.conf
-
-postconf -e 'smtp_tls_security_level = may'
-postconf -e 'smtpd_tls_security_level = may'
-postconf -e 'smtpd_tls_auth_only = no'
-postconf -e 'smtp_tls_note_starttls_offer = yes'
-postconf -e 'smtpd_tls_key_file = /data/.certs/smtpd.key'
-postconf -e 'smtpd_tls_cert_file = /data/.certs/smtpd.crt'
-postconf -e 'smtpd_tls_CAfile = /etc/ssl/certs/cacert.pem'
-postconf -e 'smtpd_tls_loglevel = 1'
-postconf -e 'smtpd_tls_received_header = yes'
-postconf -e 'smtpd_tls_session_cache_timeout = 3600s'
-postconf -e 'tls_random_source = dev:/dev/urandom'
-postconf -e 'myhostname = sautner.me' 
-
+  
 sudo cp /data/.certs/cacert.pem /etc/ssl/certs/
 sudo cp /data/.certs/cakey.pem /etc/ssl/private/
 
@@ -92,8 +67,8 @@ sudo adduser ben mail
 sudo touch /var/mail/ben
 sudo chmod ug+rw /var/mail/ben
  
-sudo apt-get -y install dovecot-imapd dovecot-pop3d
-cp dovcot.config /etc/dovcot/
+#sudo apt-get -y install dovecot-imapd dovecot-pop3d
+#cp dovcot.config /etc/dovcot/
 reboot
 
 
