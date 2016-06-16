@@ -78,8 +78,9 @@ maildirmake Maildir
 maildirmake -f Spam Maildir
 maildirmake -q 10000000S ./Maildir
 touch .courier
-sudo cp -r Maildir /etc/skel
-sudo cp .courier /etc/skel
+cp -r Maildir /etc/skel
+cp .courier /etc/skel
+cp ./maildroprc /etc/courier/maildroprc 
 reboot
 
 
