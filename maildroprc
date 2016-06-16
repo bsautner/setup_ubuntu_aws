@@ -1,0 +1,12 @@
+import HOME
+import USER
+DEFAULT="$HOME/Maildir/"
+
+if ($SIZE < 256000)
+{
+   xfilter "/usr/bin/spamc -u $USER"
+}
+if ( /^X-Spam-Status: Yes/ )
+{
+  to "$DEFAULT/.Spam/"
+}
