@@ -51,35 +51,8 @@ apt-get -y install pass
 #cp -vf ./squid.conf /etc/squid3/squid.conf
 #service squid3 restart
  
-  
-sudo cp /data/.certs/cacert.pem /etc/ssl/certs/
-sudo cp /data/.certs/cakey.pem /etc/ssl/private/
-
-sudo apt-get -y install libsasl2-2 sasl2-bin libsasl2-modules
-
-cp -fv ./saslauthd /etc/default/saslauthd
-
-sudo dpkg-statoverride --force --update --add root sasl 755 /etc/default/saslauthd
-sudo ln -s /etc/default/saslauthd /etc/saslauthd
-
-sudo apt-get -y install mailutils
-sudo adduser ben mail
-sudo touch /var/mail/ben
-sudo chmod ug+rw /var/mail/ben
- 
-#sudo apt-get -y install dovecot-imapd dovecot-pop3d
-#cp dovcot.config /etc/dovcot/
-apt-get -y install courier-imap courier-imap-ssl courier-pop courier-pop-ssl
-
-maildirmake /etc/skel/Maildir
-maildirmake /etc/skel/Maildir/.Drafts
-maildirmake /etc/skel/Maildir/.Sent
-maildirmake /etc/skel/Maildir/.Trash
-maildirmake /etc/skel/Maildir/.Templates
-
-cp -r /etc/skel/Maildir /data/home/ben/
-chown -R myuser:usergroup /data/home/ben/Maildir
-chmod -R 700 /data/home/ben/Maildir
+   
+   
 
 reboot
 
