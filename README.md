@@ -17,3 +17,7 @@
 
 ### Connect ssh tunnel:
 ssh -D <port> ben@sautner.me
+
+### AV Scan
+freshclam
+clamscan -r /data
