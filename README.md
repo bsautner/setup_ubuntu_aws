@@ -13,3 +13,7 @@
 
 * tail -f /var/log/squid3/access.log
 * curl -x http://sautner.me:8888 google.com
+* 
+
+### Connect ssh tunnel:
+ssh -D <port> ben@sautner.me
