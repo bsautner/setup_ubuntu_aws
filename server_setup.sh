@@ -49,6 +49,7 @@ apt-get -y install squid
 cp /etc/squid3/squid.conf /etc/squid3/squid.conf.original
 chmod a-w /etc/squid3/squid.conf.original
 cp -vf ./squid.conf /etc/squid3/squid.conf
+cp -vf ./adslist.txt /etc/squid3/adslist.txt
 service squid3 restart
  
    
