@@ -53,8 +53,12 @@ cp -vf ./adslist.txt /etc/squid3/adslist.txt
 service squid3 restart
  
    
-   
-
+ #install AV
+ apt-get -y install clamav
+ apt-get -y install clamav-daemon
+ freshclam
+ 
+ 
 reboot
 
 
