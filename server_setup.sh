@@ -18,9 +18,9 @@ apt-get autoremove -y
 apt-get install ecryptfs-utils -y
  
 keyctl link @u @s
-#adduser --disabled-password --gecos "" --force $USER 
+adduser --disabled-password --gecos "" --force $USER 
 
-adduser --gecos "" --force $USER 
+#adduser --gecos "" --force $USER 
 
 keyctl unlink @u @s
 
@@ -45,11 +45,11 @@ apt-get -y install pass
 #pass git init
 
 #Setup Proxy
-#apt-get -y install squid
-#cp /etc/squid3/squid.conf /etc/squid3/squid.conf.original
-#chmod a-w /etc/squid3/squid.conf.original
-#cp -vf ./squid.conf /etc/squid3/squid.conf
-#service squid3 restart
+apt-get -y install squid
+cp /etc/squid3/squid.conf /etc/squid3/squid.conf.original
+chmod a-w /etc/squid3/squid.conf.original
+cp -vf ./squid.conf /etc/squid3/squid.conf
+service squid3 restart
  
    
    
