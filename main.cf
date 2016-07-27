@@ -1,0 +1,61 @@
+#Base config
+myhostname = mail.sautner.me
+myorigin = /etc/mailname
+mydestination = $myhostname, $mydomain, localhost, localhost.$mydomain
+relayhost =
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+mailbox_size_limit = 0
+recipient_delimiter = +
+inet_interfaces = all
+relay_domains = $mydestination
+syslog_name=postfix/submission
+#Aliases / Recipients
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+local_recipient_maps = proxy:unix:passwd.byname $alias_maps
+#SSL/TLS
+smtpd_tls_cert_file=/etc/ssl/certs/mail.sautner.me.pem
+smtpd_tls_key_file=/etc/ssl/private/mail.sautner.me.key
+smtpd_use_tls=yes
+smtpd_tls_auth_only = yes
+smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
+smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
+smtpd_tls_security_level=may
+smtp_tls_security_level=may
+smtpd_tls_protocols = !SSLv2, !SSLv3
+smtpd_tls_wrappermode=no
+smtpd_sasl_type=dovecot
+smtpd_sasl_path=private/auth
+smtpd_sasl_auth_enable=yes
+milter_macro_daemon_name=ORIGINATING
+#Security and Anti-Spam cinfig
+policy-spf_time_limit = 3600s
+smtpd_helo_required = yes
+
+smtpd_recipient_restrictions =
+ reject_non_fqdn_recipient
+ reject_unknown_recipient_domain
+ permit_mynetworks
+ permit_sasl_authenticated
+ reject_unauth_destination
+ check_policy_service unix:private/policy-spf
+ check_policy_service inet:127.0.0.1:10023
+
+smtpd_helo_restrictions =
+ permit_mynetworks
+ reject_non_fqdn_helo_hostname
+ reject_invalid_helo_hostname
+
+smtpd_client_restrictions=
+ permit_mynetworks
+ permit_sasl_authenticated
+ reject_unknown_client_hostname
+
+smtpd_data_restrictions =
+ reject_unauth_pipelining
+
+#DKIM
+milter_default_action = accept
+milter_protocol = 6
+smtpd_milters = inet:localhost:8891
+non_smtpd_milters = inet:localhost:8891
