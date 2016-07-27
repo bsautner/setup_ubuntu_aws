@@ -58,6 +58,9 @@ service squid3 restart
  apt-get -y install clamav-daemon
  freshclam
  
+ #mail server
+ apt-get -y install postfix
+ 
  
 reboot
 
