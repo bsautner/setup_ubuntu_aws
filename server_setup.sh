@@ -67,7 +67,8 @@ postfix stop
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/mail.sautner.me -out /etc/ssl/certs/mail.sautner.me
 cp -fv /etc/postfix/master.cf /etc/postfix/master.cf_orig
 cp -fv /etc/postfix/main.cf /etc/postfix/main.cf_orig 
-cp -fv ./main.cf /etc/postfix/main.cf
+cp -fv ./main.cf /etc/postfix/main.cf 
+cp -fv ./master.cf /etc/postfix/master.cf
 reboot
 
 
