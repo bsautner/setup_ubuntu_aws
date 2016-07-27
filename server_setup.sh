@@ -65,8 +65,9 @@ bash -c 'echo "sautner.me" >> /etc/mailname'
 apt-get install -y postfix postfix-policyd-spf-perl postgrey dovecot-core dovecot-imapd opendkim opendkim-tools
 postfix stop
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/mail.sautner.me -out /etc/ssl/certs/mail.sautner.me
-cp /etc/postfix/master.cf /etc/postfix/master.cf_orig
-cp /etc/postfix/main.cf /etc/postfix/main.cf_orig 
+cp -fv /etc/postfix/master.cf /etc/postfix/master.cf_orig
+cp -fv /etc/postfix/main.cf /etc/postfix/main.cf_orig 
+cp -fv ./main.cf /etc/postfix/main.cf
 reboot
 
 
