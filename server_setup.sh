@@ -36,7 +36,7 @@ bash -c 'echo "/dev/xvdf1 /data ext4 defaults,nofail 0 2" >> /etc/fstab'
 mount -a
 chown -R $USER /data
 
-sudo usermod -d /data/home/ben $USER
+usermod -d /data/home/ben $USER
 
 apt-get -y install fail2ban
 
