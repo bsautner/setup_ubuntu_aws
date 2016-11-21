@@ -69,6 +69,11 @@ cp -fv /etc/postfix/master.cf /etc/postfix/master.cf_orig
 cp -fv /etc/postfix/main.cf /etc/postfix/main.cf_orig 
 cp -fv ./main.cf /etc/postfix/main.cf 
 cp -fv ./master.cf /etc/postfix/master.cf
+
+
+#build tools
+apt-get -y install maven
+
 reboot
 
 
