@@ -82,6 +82,7 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get install -y ubuntu-desktop
 apt-get install xfce4 xrdp
 apt-get install xfce4 xfce4-goodies
+cp -fv ./xrdp.ini /etc/xrdp/xrdp.ini 
 
 reboot
 
