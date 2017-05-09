@@ -74,6 +74,15 @@ cp -fv ./master.cf /etc/postfix/master.cf
 #build tools
 apt-get -y install maven
 
+#install remote desktop
+#https://aws.amazon.com/premiumsupport/knowledge-center/connect-to-linux-desktop-from-windows/
+#need to set a password, and ssh -NfL 5544:127.0.0.1:3389 ben@sautner.me locally
+export DEBIAN_FRONTEND=noninteractive
+
+apt-get install -y ubuntu-desktop
+apt-get install xfce4 xrdp
+apt-get install xfce4 xfce4-goodies
+
 reboot
 
 
